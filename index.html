@@ -351,29 +351,6 @@
       });
     }, { threshold: 0.12 }) : null;
     document.querySelectorAll(".reveal").forEach(el => observer ? observer.observe(el) : el.classList.add("visible"));
-
-    document.getElementById("rsvp-form").addEventListener("submit", event => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const name = data.get("guest-name");
-      const email = data.get("guest-email") || "Not provided";
-      const attendance = data.get("attendance");
-      const guests = data.get("guest-count");
-      const message = data.get("message") || "No message";
-      if (!CONFIG.rsvpEmail) {
-        document.getElementById("form-status").textContent =
-          "The invitation form is ready, but the host RSVP email has not been configured yet. Please contact the host directly for now.";
-        return;
-      }
-      const subject = encodeURIComponent("Gender Reveal RSVP — " + name);
-      const body = encodeURIComponent(
-        "Kallem Family Gender Reveal RSVP\n\nName: " + name +
-        "\nEmail: " + email + "\nAttendance: " + attendance +
-        "\nGuests: " + guests + "\nMessage: " + message
-      );
-      window.location.href = "mailto:" + encodeURIComponent(CONFIG.rsvpEmail) + "?subject=" + subject + "&body=" + body;
-      document.getElementById("form-status").textContent = "Your email app should open with your RSVP prepared.";
-    });
   </script>
 </body>
 </html>
