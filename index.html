@@ -110,6 +110,46 @@
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
       .reveal { opacity: 1; transform: none; }
     }
+    .attendance-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+  
+    .attendance-option {
+      margin: 0;
+      cursor: pointer;
+    }
+  
+    .attendance-option input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+  
+  .attendance-option span {
+      display: block;
+      padding: 18px 8px;
+      text-align: center;
+      background: white;
+      border: 1px solid #efd9d0;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: .9rem;
+    }
+  
+  .attendance-option input:checked + span {
+    background: #fff0f3;
+    border: 2px solid #bd627e;
+    color: #bd627e;
+    }
+  
+  .attendance-option input:focus-visible + span {
+    outline: 2px solid #bd627e;
+    outline-offset: 3px;
+    }
   </style>
 </head>
 <body>
@@ -197,23 +237,47 @@
         <h2 class="section-title">Will you celebrate with us?</h2>
         <p class="section-intro">Please let us know if you can make it. We can’t wait to celebrate with you!</p>
       </div>
-      <form class="rsvp-form reveal" id="rsvp-form">
-        <label for="guest-name">Your name</label>
-        <input id="guest-name" name="guest-name" autocomplete="name" required placeholder="Full name">
-        <label for="guest-email">Email (optional)</label>
-        <input id="guest-email" name="guest-email" type="email" autocomplete="email" placeholder="you@example.com">
-        <label for="attendance">Will you be joining us?</label>
-        <select id="attendance" name="attendance" required>
-          <option value="">Please choose</option><option>Joyfully accepts</option><option>Sadly cannot attend</option>
-        </select>
-        <label for="guest-count">Number of guests</label>
-        <select id="guest-count" name="guest-count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
-        <label for="message">A little note (optional)</label>
-        <textarea id="message" name="message" rows="3" placeholder="Leave a wish for our growing family…"></textarea>
-        <button class="button" type="submit" style="width:100%;margin-top:1.4rem">Prepare my RSVP ↗</button>
-        <p class="form-note">This starter form opens your email app with the RSVP details. To collect responses automatically, connect it to Google Forms, Formspree, or your own backend before sharing the invitation.</p>
-        <p id="form-status" role="status" aria-live="polite"></p>
-      </form>
+      <form class="rsvp-form" id="rsvp-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST">
+
+  <label for="family-name">Family Name</label>
+  <input
+    id="family-name"
+    name="Family Name"
+    required
+    placeholder="e.g. The Smith Family">
+
+  <p style="margin-top:1.5rem;font-size:.9rem">
+    Will you be joining us?
+  </p>
+
+  <div class="attendance-options">
+
+    <label class="attendance-option">
+      <input type="radio" name="Attendance"
+             value="Yes - Attending" required>
+      <span>👍 Yes, we will!</span>
+    </label>
+
+    <label class="attendance-option">
+      <input type="radio" name="Attendance"
+             value="No - Not attending">
+      <span>👎 Sorry, we can't</span>
+    </label>
+
+  </div>
+
+  <button class="button" type="submit"
+          style="width:100%;margin-top:1.5rem">
+    Submit RSVP ♡
+  </button>
+
+  <p class="form-note">
+    Thank you for letting us know. We can't wait to celebrate!
+  </p>
+
+</form>
     </section>
   </main>
 
@@ -229,13 +293,16 @@
        Format: "2026-11-08T15:00:00+01:00" (Munich local time in winter)
     */
     const CONFIG = {
-      eventDate: "", // e.g. "2026-11-08T15:00:00+01:00"
-      eventDateText: "Date to be announced",
-      eventTimeText: "Time to be announced",
+      eventDate: "2026-11-07T15:00:00+01:00",
+      eventDateText: "07 November 2026",
+      eventTimeText: "12:00 PM onwards",
+
       venueName: "Munich",
-      venueNote: "Venue details will be shared with confirmed guests.",
-      mapUrl: "", // Optional Google Maps link
-      rsvpEmail: "" // Add the email address that should receive RSVPs
+      venueNote: "Helmut Käutner Straße 17, 81739 München",
+
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Helmut+K%C3%A4utner+Stra%C3%9Fe+17+81739+M%C3%BCnchen",
+
+      rsvpEmail: ""  
     };
     /* =================== END CONFIG =================== */
 
