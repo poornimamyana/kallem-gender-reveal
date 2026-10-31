@@ -37,13 +37,6 @@
         ),
       url("images/header-family.jpg") center center / cover no-repeat;
      } 
-    .hero:before, .hero:after { content: "✦"; position: absolute; color: #d9ad83; opacity: .8; font-size: 2rem; }
-    .hero:before { top: 17%; left: 10%; animation: float 5s ease-in-out infinite; }
-    .hero:after { right: 11%; bottom: 20%; animation: float 6s ease-in-out infinite reverse; }
-    .orb { position: absolute; width: 125px; height: 155px; border-radius: 50% 50% 46% 46%; opacity: .62; filter: blur(.3px); }
-    .orb:after { content:""; position:absolute; width:1px; height:70px; background:#c9a28d; top:100%; left:50%; }
-    .orb.pink { background: radial-gradient(circle at 30% 25%, #fff, #efb4c1 58%, #d987a1); left: 4%; top: 8%; transform: rotate(-12deg) scale(.7); }
-    .orb.blue { background: radial-gradient(circle at 30% 25%, #fff, #c0d6e9 58%, #8eafce); right: 3%; top: 10%; transform: rotate(13deg) scale(.72); }
     .eyebrow { text-transform: uppercase; letter-spacing: .28em; font-size: .73rem; color: var(--blue-deep); }
     h1 { font: normal clamp(2.8rem, 7.5vw, 6rem)/1.02 var(--serif); margin: 1rem 0 .2rem; letter-spacing: -.045em; }
     .script { font: italic clamp(2.7rem, 7vw, 5.7rem)/1.1 var(--serif); color: var(--gold); margin: 0 0 1.4rem; }
@@ -198,11 +191,11 @@
 
   <main>
     <section class="hero" id="home">
-      <div class="orb pink" aria-hidden="true"></div><div class="orb blue" aria-hidden="true"></div>
-      <div class="reveal">
+        <div class="reveal">
         <div class="eyebrow"></div>
         <h1></h1>
         <p class="script"></p>
+        <p class="hero-copy">A new chapter. A bigger team.<br>And a whole lot more love.</p>
         <p class="hero-copy"><br></p>
         <a class="button" href="#details">Join our celebration <span aria-hidden="true">→</span></a>
         </div>
