@@ -78,6 +78,40 @@
     .story { background: var(--paper); }
     .crew { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; max-width: 900px; margin: 2.5rem auto 0; }
     .crew-card { padding: 1.4rem .7rem; text-align: center; border: 1px solid var(--line); border-radius: 18px; background: #fffaf7; }
+    .crew-photo {
+      width: 100%;
+      max-width: 170px;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 80px 80px 18px 18px;
+      border: 3px solid #f2dfd5;
+      box-shadow: 0 6px 18px rgba(189, 98, 126, 0.12);
+      display: block;
+      margin: 0 auto 1rem;
+    }
+    
+    .crew-card {
+      padding: 1.2rem .7rem;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fffaf7;
+      overflow: hidden;
+    }
+    
+    .crew-card h3 {
+      font: normal 1.2rem var(--serif);
+      margin: .6rem 0 .3rem;
+    }
+    
+    .crew-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.5;
+    }
+    
     .crew-icon { font-size: 2rem; }
     .crew-card h3 { font: normal 1.2rem var(--serif); margin: .6rem 0 .3rem; }
     .crew-card p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
@@ -156,7 +190,7 @@
 <body>
   <!-- CUSTOMISE: Edit the CONFIG block near the bottom of this file. -->
   <header class="topbar">
-    <a class="brand" href="#home" style="text-decoration:none"></a>
+    <a class="brand" href="#home" style="text-decoration:none">Gender Reveal Party</a>
     <nav aria-label="Main navigation">
       <a href="#home">Home</a><a href="#story">Our story</a><a href="#details">Details</a><a href="#rsvp">RSVP</a>
     </nav>
@@ -168,7 +202,7 @@
       <div class="reveal">
         <div class="eyebrow"></div>
         <h1></h1>
-        <p class="script">Gender Reveal Party</p>
+        <p class="script"></p>
         <p class="hero-copy"><br></p>
         <p class="big-sis">Yodha is getting promoted to Big Sister ♡</p><br>
         <a class="button" href="#details">Join our celebration <span aria-hidden="true">→</span></a>
@@ -213,12 +247,40 @@
         <div class="eyebrow" style="text-align:center">Our little mission</div>
         <h2 class="section-title">The crew is growing</h2>
         <p class="section-intro">Our family is growing, and we're getting ready to meet our newest little member. Join us as we celebrate this beautiful next chapter.</p>
-      </div>
+      </div>   
       <div class="crew reveal">
-        <article class="crew-card"><div class="crew-icon" aria-hidden="true">♡</div><h3>Mum</h3><p>Poornima</p></article>
-        <article class="crew-card"><div class="crew-icon" aria-hidden="true">✦</div><h3>Dad</h3><p>Ramu</p></article>
-        <article class="crew-card"><div class="crew-icon" aria-hidden="true">🎀</div><h3>Big Sister</h3><p>Yodha</p></article>
-        <article class="crew-card"><div class="crew-icon" aria-hidden="true">☁</div><h3>Baby No. 2</h3><p>Gender remains a secret!</p></article>
+        <article class="crew-card">
+          <img
+            src="images/poornima.jpg"
+            alt="Mum Poornima"
+            class="crew-photo">
+          <h3>Mum</h3>
+          <p>Poornima</p>
+        </article>   
+        <article class="crew-card">
+          <img
+            src="images/ramu.jpg"
+            alt="Dad Ramu"
+            class="crew-photo">
+          <h3>Dad</h3>
+          <p>Ramu</p>
+        </article>
+        <article class="crew-card">
+          <img
+            src="images/yodha.jpg"
+            alt="Big Sister Yodha 🎀"
+            class="crew-photo">
+          <h3>Big Sister</h3>
+          <p>Yodha ♡</p>
+        </article>
+        <article class="crew-card">
+          <img
+            src="images/little-mystery.jpg"
+            alt="Our little mystery baby"
+            class="crew-photo">
+          <h3>Baby No. 2</h3>
+          <p>Gender remains a secret! ♡</p>
+        </article>  
       </div>
     </section>
 
